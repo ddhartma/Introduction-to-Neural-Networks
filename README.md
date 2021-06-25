@@ -26,17 +26,7 @@ How does Neural Networks work?
 
 ## Content 
 - [Feed forward - Weighted sum - Boundaries](#bound)
-- [Vectors and Matrices](#vec_mat)
-- [Perceptron](#perceptron)
-    - [Data Types and Shapes](#data_types)
-    - [Scalars](#scalars)
-    - [Vectors](#vectors)
-    - [Matrices](#matrices)
-    - [Tensors](#tensors)
-    - [Reshaping](#reshape)
-    - [Elementwise operations](#element_wise)
-    - [Matrix product](#matrix_prod)
-    - [Matrix transpose](#transpose)
+
 - [Setup Instructions](#Setup_Instructions)
 - [Acknowledgments](#Acknowledgments)
 - [Further Links](#Further_Links)
