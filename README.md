@@ -220,6 +220,8 @@ How does Neural Networks work?
 
     ![image24]
 
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
 ## Minimal example in NumPy <a name="min_example"></a>
 - Open Jupyter Notebook ```NN_numpy.ipynb```
     ### Libraries
