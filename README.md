@@ -54,6 +54,7 @@ How does Neural Networks work?
     - [Gradient Descent as optimization algorithm](#grad_dec)
     - [Gradient Descent algorithm](#grad_dec_algo)
     - [Forward and Backward propagation](#for_and_back)
+    - [Minimal Example in NumPy](#min_example)
 - [Setup Instructions](#Setup_Instructions)
 - [Acknowledgments](#Acknowledgments)
 - [Further Links](#Further_Links)
@@ -219,7 +220,8 @@ How does Neural Networks work?
 
     ![image24]
 
-- Minimal example in NumPy: Open Jupyter Notebook ```NN_numpy.ipynb```
+## Minimal example in NumPy <a name="min_example"></a>
+- Open Jupyter Notebook ```NN_numpy.ipynb```
     ### Libraries
     ```
     import numpy as np
