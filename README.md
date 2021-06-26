@@ -49,12 +49,11 @@ How does Neural Networks work?
     - [One Hot Encoding](#one_hot)
     - [Maximum Likelihood](#max_likely)
     - [Important Error Functions](#error_func)
-    - [Gradient Descent](#grad_dec)
+
+- [Gradient Descent](#gradient_descent)
+    - [Gradient Descent as optimization algorithm](#grad_dec)
     - [Gradient Descent algorithm](#grad_dec_algo)
-- [Gradient Descent](#)
-    - [](#)
-    - [](#)
-    - [](#)
+    - [Forward and Backward propagation](#for_and_back)
 - [Setup Instructions](#Setup_Instructions)
 - [Acknowledgments](#Acknowledgments)
 - [Further Links](#Further_Links)
@@ -194,7 +193,9 @@ How does Neural Networks work?
 
     ![image12]
 
-## Gradient Descent <a name="grad_dec"></a>
+# Gradient Descent <a name="gradient_descent"></a>
+
+## Gradient Descent as optimization algorithm <a name="grad_dec"></a>
 - The last ingredient is the **optimization algorithm**. The most commonly used one is the **gradient descent**. The main point is that we can find the **minimum of a loss function** by applying the rule: 𝑥𝑖+1 = 𝑥𝑖 − 𝜂𝑓′(𝑥𝑖) , where 𝜂 is a small enough positive number. In machine learning, 𝜂, is called the learning rate. The rationale is that the first derivative at xi , f’(xi) shows the slope of the function at xi.
 
     ![image21]
@@ -213,8 +214,9 @@ How does Neural Networks work?
 
     ![image13]
 
-## Forward and Backward propagation
-- 
+## Forward and Backward propagation <a name="for_and_back"></a>
+- Forward and backward propagation needed for learning 
+
     ![image24]
 
 - Minimal example in NumPy: Open Jupyter Notebook ```NN_numpy.ipynb```
