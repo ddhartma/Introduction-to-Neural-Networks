@@ -16,22 +16,89 @@
 [image16]: assets/16.png 
 [image17]: assets/17.png 
 [image18]: assets/18.png 
-[image18]: assets/19.png 
+[image19]: assets/19.png 
 [image20]: assets/20.png 
+[image21]: assets/21.png 
+[image22]: assets/22.png 
+[image23]: assets/23.png 
+[image24]: assets/24.png 
+[image25]: assets/25.png 
+[image26]: assets/26.png 
+[image27]: assets/27.png 
+[image28]: assets/28.png 
+[image29]: assets/29.png 
+[image30]: assets/30.png 
 
 
-# Introduction to Neural Networks
+# Neural Networks
 
 How does Neural Networks work?
 
-## Content 
-- [Feed forward - Weighted sum - Boundaries](#bound)
-
+# Content 
+- [Machine Learning algorithm](#ml_algo)
+- [Model - Feed forward - Weighted sum - Boundaries](#bound)
+    - [Boundary concepts](#bound_concepts)
+    - [Perceptron](#perceptron)
+    - [Perceptron Trick](#percep_trick)
+    - [Perceptron algorithm](#percep_algo)
+    - [Nonlinear Regions](#nonlinear_regions)
+    - [More Nodes/Layers](#more_nodes_layers)
+    - [Activation Functions](#activation_func)
+    - [Sigmoid Activation for binary probabilities](#sigmoid_activation)
+    - [Softmax Activation for multiclass probabilities](#softmax_activation)
+    - [One Hot Encoding](#one_hot)
+    - [Maximum Likelihood](#max_likely)
+    - [Important Error Functions](#error_func)
+    - [Gradient Descent](#grad_dec)
+    - [Gradient Descent algorithm](#grad_dec_algo)
+- [Gradient Descent](#)
+    - [](#)
+    - [](#)
+    - [](#)
 - [Setup Instructions](#Setup_Instructions)
 - [Acknowledgments](#Acknowledgments)
 - [Further Links](#Further_Links)
 
-## Feed forward - Weighted sum - Boundaries <a name="bound"></a>
+# Machine Learning algorithm <a name="ml_algo"></a>
+- A machine learning algorithm can be thought of as a **black box**. 
+- It takes **inputs** and gives **outputs**.
+- Once we have a **model**, we must **train** it. Training is the process through which, the model learns how to make sense of input data.
+
+    ![image15]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
+- Types of machine/deep learning
+
+    ![image16]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
+- The Building blocks of a machine learning algorithm
+
+    ![image17]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
+- Regression vs Classification
+
+    Supervised learning could be split into two subtypes – regression and classification. Regression
+
+    ![image18]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
+# Model - Feed forward - Weighted sum - Boundaries <a name="bound"></a>
+## Model <a name="model"></a> 
+- The simplest possible model is a **linear model**. It is the basis of more complicated (nonlinear) models.
+
+    ![image19]
+
+- Example:
+
+    ![image20]
+
+## Boundary concepts <a name="bound_concepts"></a> 
 - **2D: Linear Boundary**
     - 2 inputs
     - 2 dimensions
@@ -60,39 +127,52 @@ How does Neural Networks work?
 
     ![image2]
 
-### Nonlinear Regions
+## Perceptron Trick <a name="percep_trick"></a>
+- Perceptron model Line should move closer to a misclassified point
+
+    ![image3]
+
+## Perceptron algorithm <a name="percep_algo"></a>
+- Update weights and bias for every **misclassified** point
+
+    ![image4]
+
+## Nonlinear Regions <a name="nonlinear_regions"></a>
 - Combine Perceptrons to create nonlinear regions
 
     ![image5]
 
-### More Nodes/Layers
+## More Nodes/Layers <a name="more_nodes_layers"></a>
 - 2 possibilities: 
     - more nodes
     - more hidden layers
 
     ![image6]
 
-### Feed Forward
-- Check out below some examples of Perceptron Feed Forward
+## Activation Functions <a name="activation_func"></a>
+- [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
-    ![image7]
-
-### Activation Functions
-- Source [Wikipedia](https://en.wikipedia.org/wiki/Activation_function) 
-
-    ![image8]
     ![image9]
 
-### Sigmoid Activation for binary probabilities 
+## Sigmoid Activation for binary probabilities <a name="sigmoid_activation"></a>
 - Switch from discrete to continuous via Sigmoid Activation
 
     ![image11]
 
-### Maximum Likelihood
+## Softmax Activation for multiclass probabilities <a name="softmax_activation"></a> 
+- The softmax activation transforms a bunch of arbitrarily large or small numbers into a valid probability distribution.
+- Often used for final output layer
+- However, when the softmax is used prior to that (as the activation of a hidden layer), the results are not as satisfactory. That’s because a lot of the information about the variability of the data is lost.
+
+    ![image23]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
+## Maximum Likelihood <a name="max_likely"></a>
 - Use a model that gives the existing labels the highest probability
 - If P(all) is high than: The model classifies most points correctly with P(all) indicating how accurate the model is
 
-### Two important Error Functions (cost functions)
+## Important Error Functions (cost functions) <a name="error_func"></a>
 - Cost functions must be:
     - continuous 
     - differentiable
@@ -114,26 +194,96 @@ How does Neural Networks work?
 
     ![image12]
 
+## Gradient Descent <a name="grad_dec"></a>
+- The last ingredient is the **optimization algorithm**. The most commonly used one is the **gradient descent**. The main point is that we can find the **minimum of a loss function** by applying the rule: 𝑥𝑖+1 = 𝑥𝑖 − 𝜂𝑓′(𝑥𝑖) , where 𝜂 is a small enough positive number. In machine learning, 𝜂, is called the learning rate. The rationale is that the first derivative at xi , f’(xi) shows the slope of the function at xi.
+
+    ![image21]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+
+- Learning rate: Best Practice
+
+    ![image22]
+
+    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
 
-
-
-### Perceptron Trick
-- Perceptron model Line should move closer to a misclassified point
-
-    ![image3]
-
-
-### Perceptron algorithm
-- Update weights and bias for every **misclassified** point
-
-    ![image4]
-
-### Gradient Descent algorithm
+## Gradient Descent algorithm <a name="grad_dec_algo"></a>
 - Update weights and bias for **every** point
 
     ![image13]
 
+## Forward and Backward propagation
+- 
+    ![image24]
+
+- Minimal example in NumPy: Open Jupyter Notebook ```NN_numpy.ipynb```
+    ### Libraries
+    ```
+    import numpy as np
+    ```
+    ### Generate random input data to train on
+    ```
+    observations = 1000000
+    xs = np.random.uniform(low=-10, high=10, size=(observations,1))
+    zs = np.random.uniform(-10, 10, (observations,1))
+
+    # Combine the two dimensions of the input into one input matrix. 
+    # This is the X matrix from the linear model y = x*w + b.
+    # column_stack is a Numpy method, which combines two vectors into a matrix. Alternatives are stack, dstack, hstack, etc.
+    
+    inputs = np.column_stack((xs,zs))
+    print (inputs.shape)
+    ```
+    ### Generate the targets we will aim at
+    ``` 
+    noise = np.random.uniform(-1, 1, (observations,1))
+
+    # Produce the targets according to the f(x,z) = 2x - 3z + 5 + noise definition.
+
+    targets = 13*xs + 7*zs - 12 + noise
+    print (targets.shape)
+    ```
+    ### Initialize weights 
+    ```
+    # init_range is the variable to set a range for initialization.
+    init_range = 0.1
+
+    weights = np.random.uniform(low=-init_range, high=init_range, size=(2, 1))
+
+    biases = np.random.uniform(low=-init_range, high=init_range, size=1)
+
+    print (weights)
+    print (biases)
+    ```
+    ### Set a learning rate
+    ```
+    learning_rate = 0.02
+    ```
+    ### Train the model
+    ```
+    for i in range (100):
+        
+        deltas = outputs - targets
+        loss = np.sum(deltas ** 2) / 2 / observations
+       
+        # Another small trick is to scale the deltas the same way as the loss function. In this way our learning rate is independent of the number of samples (observations).
+        
+        deltas_scaled = deltas / observations
+        
+        # The gradient descent update rule
+        # weights            2x1 
+        # bias               1x1 (scalar)
+        # learning_rate      1x1 (scalar)
+        # inputs             1000x2
+        # deltas_scaled      1000x1
+        # outputs            1000x1
+        # targets            1000x1
+        # We must transpose the inputs so that we get an allowed operation.
+
+        weights = weights - learning_rate * np.dot(inputs.T,deltas_scaled)
+        biases = biases - learning_rate * np.sum(deltas_scaled)
+    ```
 
 ## Setup Instructions <a name="Setup_Instructions"></a>
 The following is a brief set of instructions on setting up a cloned repository.
