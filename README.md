@@ -297,8 +297,8 @@ How does Neural Networks work?
     - It combines Training and Validation set in a clever way
     - For example: we have 10000 observations (9000 for training + 1000 for validation)
     - Divide dataset into **n chunks** (here 10)
-    - During the **1st epoch**: **1st chunk** serves as **validation set
-    - During the **2nd epoch**: **2nd chunk** serves as **validation set
+    - During the **1st epoch**: **1st chunk** serves as **validation set**
+    - During the **2nd epoch**: **2nd chunk** serves as **validation set**
     - etc.
     - For each epoch: We don't overlap training and validation
 
