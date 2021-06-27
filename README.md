@@ -28,7 +28,26 @@
 [image28]: assets/28.png 
 [image29]: assets/29.png 
 [image30]: assets/30.png 
-
+[image31]: assets/31.png 
+[image32]: assets/32.png 
+[image33]: assets/33.png 
+[image34]: assets/34.png 
+[image35]: assets/35.png 
+[image36]: assets/36.png 
+[image37]: assets/37.png 
+[image38]: assets/38.png 
+[image39]: assets/39.png 
+[image40]: assets/40.png 
+[image41]: assets/41.png 
+[image42]: assets/42.png 
+[image43]: assets/43.png 
+[image44]: assets/44.png 
+[image45]: assets/45.png 
+[image46]: assets/46.png 
+[image47]: assets/47.png 
+[image48]: assets/48.png 
+[image49]: assets/49.png 
+[image50]: assets/50.png 
 
 # Neural Networks
 
@@ -51,12 +70,22 @@ How does Neural Networks work?
     - [Maximum Likelihood](#max_likely)
     - [Important Error Functions](#error_func)
 - [Underfitting and Overfitting](#under_over)
-    - [What is it?](#over_under_what)
-    - [Train-Validation-Test Split](#train_val_test)
-    - [N-fold-cross-validation](#n-fold_cross_val)
-    - [Early Stopping](#early_stop)
-    - [L1 and L2 regularization](#l1_l2)
+    - [Ways to overcome Under - and Overfitting](#over_under_overcome)
+        - [Train-Validation-Test Split](#train_val_test)
+        - [N-fold-cross-validation](#n_fold_cross_val)
+        - [Early Stopping](#early_stop)
+        - [Dropout](#dropout)
+        - [L1 and L2 regularization](#l1_l2)
+        - [Data Augmentation](#data_aug)
 - [Weight Initialization](#weight_init)
+    - [Why is weight initialization important?](#why_weight_init)
+    - [Uniform ditribution](#uniform_distribution)
+    - [Standard normalization](#std_norm)
+    - [Glorot normal/uniform distribution](#glorot_normal)
+- [Instable Gradients](#instable_grad)
+    - [Vanishing gradients](#van_grad)
+    - [Exploding gradients](#expl_grad)
+    - [Batchnormalization](#batchnorm)
 - [Optimizer](#optimizer)
     - [Gradient Descent](#gradient_descent)
         - [Gradient Descent as optimization algorithm](#grad_dec)
@@ -230,6 +259,102 @@ How does Neural Networks work?
     ![image14]
 
     ![image12]
+
+# Underfitting and Overfitting <a name="under_over"></a>
+- A good model captures the undelying logic of the dataset
+- However: There are two adverserial extremes:
+    - Underfitting
+    - Overfitting
+
+    ![image30]
+
+## Train-Validation-Test Split <a name="train_val_test"></a> 
+- A Train-Validation split is needed to identify Underfitting or Overfitting
+- **Training set**: That's where the training happens
+- **Validation set**: Helps to prevent overfitting 
+- **Test set**: Measures the final predictive power of the model
+
+    ![image31]
+
+    - Training only on the **Training set**
+    - Training: Forward and Backward Propagation
+    - Training for a while
+    - Then switch to **Validation set**
+    - Validation: Only Forward Propagation
+    - Calculate the loss: How does it perform?
+        - Validation and Training loss should decrease during Training
+        - At some point Validation loss could start increasing
+        Point where overfitting starts 
+        - Point where one should stop training the model
+    - Perform Training and Validation iteratively
+    - After training: One should test the model performance using the **Test set** (only Forward Propagation)
+
+## N-fold-cross-validation <a name="n_fold_cross_val"></a> 
+- Useful if the Dataset is too small
+
+    ![image32]
+
+    - It combines Training and Validation set in a clever way
+    - For example: we have 10000 observations (9000 for training + 1000 for validation)
+    - Divide dataset into **n chunks** (here 10)
+    - During the **1st epoch**: **1st chunk** serves as **validation set
+    - During the **2nd epoch**: **2nd chunk** serves as **validation set
+    - etc.
+    - For each epoch: We don't overlap training and validation
+
+    
+## Early Stopping <a name="early_stop"></a> 
+- An easy method to prevent overfitting
+
+    ![image33]
+
+    **Benefits**:
+    - We are sure the validation loss is minimized
+    - Saves computing power
+    - Prevents overfitting
+
+## Dropout <a name="dropout"></a> 
+- An easy approach to reduce the problem of overfitting
+
+    ![image34]
+
+    - Each node will be dropped out with a certain propability, e.g. of 20%
+    - Consider: During validation or testing we do not want to use Dropout!!! We want to use the full predictive power of the full net
+    - However: Due to an increased number of available parameters during validation/testing (when dropout has been used during training), you have to reduce the neuron parameter. For example for a dropout probability of 20%, multiply the parameters of each layer with 0.8 (automatically done in Keras and PyTorch).
+
+- Simple rules for Dropout:
+    - Use it in case of overfitting.
+    - Even without overfitting it show an performance increase during validation. Test it e.g. in **later training epochs**.
+    - Rule of thumb: Test it first in the last hidden layer. Positive effect? If yes, test it in the second last, and so on ...
+    - Too much Dropout could counterproductive.
+    - Good starting point: 20%...50%
+
+## L1 and L2 regularization <a name="l1_l2"></a>  
+- An easy approach to reduce the problem of overfitting
+
+    ![image35]
+
+    - In this way only parameters (weights) will be kept if they lead to a significant reduction between target and prediction values (reduction of loss).
+
+## Data Augmentation <a name="data_aug"></a>  
+- An easy approach to reduce the problem of overfitting
+- Popular transformations (often used for images)
+    - Flip
+    - Rotation
+    - Scale
+    - Crop
+    - Translation
+    - Gaussian Noise 
+
+
+
+
+# Weight Initialization <a name="weight_init"></a> 
+
+# Instable Gradients <a name="instable_grad"></a> 
+
+# Optimizer <a name="optimizer"></a> 
+
 
 # Gradient Descent <a name="gradient_descent"></a>
 
