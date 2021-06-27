@@ -43,6 +43,7 @@ How does Neural Networks work?
     - [Perceptron algorithm](#percep_algo)
     - [Nonlinear Regions](#nonlinear_regions)
     - [More Nodes/Layers](#more_nodes_layers)
+    - [Digging Deeper](#dig_deeper)
     - [Activation Functions](#activation_func)
     - [Sigmoid Activation for binary probabilities](#sigmoid_activation)
     - [Softmax Activation for multiclass probabilities](#softmax_activation)
@@ -173,6 +174,11 @@ How does Neural Networks work?
 
     ![image6]
 
+## Digging Deeper <a name="dig_deeper"></a>
+- This is a deep neural network (deep net) with 5 layers.
+
+    ![image25]
+
 ## Activation Functions <a name="activation_func"></a>
 - [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
@@ -224,8 +230,8 @@ How does Neural Networks work?
 - The last ingredient is the **optimization algorithm**. The most commonly used one is the **gradient descent**. The main point is that we can find the **minimum of a loss function** by applying the rule: 𝑥𝑖+1 = 𝑥𝑖 − 𝜂𝑓′(𝑥𝑖) , where 𝜂 is a small enough positive number. In machine learning, 𝜂, is called the learning rate. The rationale is that the first derivative at xi , f’(xi) shows the slope of the function at xi.
 
     ![image21]
-
-    [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
+    ![image27]
+    ![image28]
 
 - Learning rate: Best Practice
 
