@@ -44,6 +44,7 @@ How does Neural Networks work?
     - [Nonlinear Regions](#nonlinear_regions)
     - [More Nodes/Layers](#more_nodes_layers)
     - [Digging Deeper](#dig_deeper)
+    - [Why we need nonlinearities?](#why_nonlinear) 
     - [Activation Functions](#activation_func)
     - [Sigmoid Activation for binary probabilities](#sigmoid_activation)
     - [Softmax Activation for multiclass probabilities](#softmax_activation)
@@ -178,6 +179,12 @@ How does Neural Networks work?
 - This is a deep neural network (deep net) with 5 layers.
 
     ![image25]
+
+## Why we need nonlinearities? <a name="why_nonlinear"></a>
+- Because two consecutive linear transformations are equivalent to a single one.
+
+    ![image29]
+
 
 ## Activation Functions <a name="activation_func"></a>
 - [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
