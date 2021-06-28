@@ -79,8 +79,8 @@ How does Neural Networks work?
         - [Data Augmentation](#data_aug)
 - [Weight Initialization](#weight_init)
     - [Why is weight initialization important?](#why_weight_init)
-    - [Uniform ditribution](#uniform_distribution)
-    - [Standard normalization](#std_norm)
+    - [Why not a constant setting?](#not_constant)
+    - [Problem of initializations with Random Uniform or Random Normal](#uniform_normal_init)
     - [Glorot normal/uniform distribution](#glorot_normal)
 - [Instable Gradients](#instable_grad)
     - [Vanishing gradients](#van_grad)
@@ -346,15 +346,49 @@ How does Neural Networks work?
     - Translation
     - Gaussian Noise 
 
-
-
-
 # Weight Initialization <a name="weight_init"></a> 
+
+## Why is weight initialization important? <a name="why_weight_init"></a> 
+- The initial value of weights is important for learning
+- A deep neural network uses activation functions like sigmoid to implement nonlinearities.
+- If **all weights are around zero**, the sigmoid will produce **linear outputs** (linear region of sigmoid is around 0). The Deep Neural Network will **loose depth**.
+- If **all weights are too negative or to positive**, the sigmoid is almost **flat** (the sigmoid outputs are 1 or 0 then). A **Vanishing Gradient** problem will arise --> The **network will not learn**
+
+## Why not a constant setting? <a name="not_constant"></a> 
+- If all weights are equal there is no reason for the algorithm to learn
+
+    ![image36]
+
+    - In Forward Propagation: 
+        - h<sub>1</sub>=h<sub>2</sub>=h<sub>3</sub>=h
+        - y<sub>1</sub>=y<sub>2</sub>=y
+    - Some optimization will take place but weights remain useless
+
+
+## Problem of initializations with Random Uniform or Random Normal   <a name="uniform_normal_init"></a> 
+- Those initializations support more the linear region than nonlinear regions of the of sigmoid function.
+
+    ![image38]
+
+## Glorot normal/uniform distribution <a name="glorot_normal"></a>  
+- Read the original paper of Xavier Glorot, Yoshua Bengio, [Understanding the difficulty of training deep feedforward neural networks](https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf), Proceedings of the Thirteens International Conference on Artificial Intelligence and Statistics, PMLR 9:249-256, 2010
+
+    ![image39]
+    - This initialization is exactly what we need, i.e. a wide range of initialized weights
+    - Two types of initializations
+        - Uniform Glorot initialization
+        - Normal Glorot initialization
+    - Main idea: The **number of neurons in the input and output layer** is important for the **range of the weight values**
+    - Why are the number of input and output neurons so important?
+        - The more outputs the higher the need to spread weights
+        - Inputs are the 'Outputs' for Backpropagation
+    - In Tensorflow Glorot Uniform intitializer (glorot_uniform_initializer) will be used as default.
+
 
 # Instable Gradients <a name="instable_grad"></a> 
 
-# Optimizer <a name="optimizer"></a> 
 
+# Optimizer <a name="optimizer"></a> 
 
 # Gradient Descent <a name="gradient_descent"></a>
 
