@@ -123,21 +123,21 @@ How does Neural Networks work?
 
     [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
-- Types of machine/deep learning
+- Types of machine/deep learning:
 
     ![image16]
 
     [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
-- The Building blocks of a machine learning algorithm
+- The Building blocks of a machine learning algorithm:
 
     ![image17]
 
     [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
-- Regression vs Classification
+- Regression vs Classification:
 
-    Supervised learning could be split into two subtypes – regression and classification. Regression
+    Supervised learning could be split into two subtypes – **regression** and **classification**. 
 
     ![image18]
 
@@ -183,17 +183,17 @@ How does Neural Networks work?
     ![image2]
 
 ## Perceptron Trick <a name="percep_trick"></a>
-- Perceptron model Line should move closer to a misclassified point
+- Perceptron model Line should move closer to a misclassified point:
 
     ![image3]
 
 ## Perceptron algorithm <a name="percep_algo"></a>
-- Update weights and bias for every **misclassified** point
+- Update weights and bias for every **misclassified** point:
 
     ![image4]
 
 ## Nonlinear Regions <a name="nonlinear_regions"></a>
-- Combine Perceptrons to create nonlinear regions
+- Combine Perceptrons to create nonlinear regions:
 
     ![image5]
 
@@ -210,7 +210,7 @@ How does Neural Networks work?
     ![image25]
 
 ## Why we need nonlinearities? <a name="why_nonlinear"></a>
-- Because two consecutive linear transformations are equivalent to a single one.
+- Because **two consecutive linear transformations** are **equivalent** to a **single one**.
 
     ![image29]
 
@@ -221,13 +221,13 @@ How does Neural Networks work?
     ![image9]
 
 ## Sigmoid Activation for binary probabilities <a name="sigmoid_activation"></a>
-- Switch from discrete to continuous via Sigmoid Activation
+- Switch from discrete to continuous outputs via sigmoid activation:
 
     ![image11]
 
 ## Softmax Activation for multiclass probabilities <a name="softmax_activation"></a> 
 - The softmax activation transforms a bunch of arbitrarily large or small numbers into a valid probability distribution.
-- Often used for final output layer
+- It is often used for the final output layer.
 - However, when the softmax is used prior to that (as the activation of a hidden layer), the results are not as satisfactory. That’s because a lot of the information about the variability of the data is lost.
 
     ![image23]
@@ -235,8 +235,8 @@ How does Neural Networks work?
     [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
 ## Maximum Likelihood <a name="max_likely"></a>
-- Use a model that gives the existing labels the highest probability
-- If P(all) is high than: The model classifies most points correctly with P(all) indicating how accurate the model is
+- Use a model that gives the existing labels the highest probability.
+- If P(all) is high than: The model classifies most points correctly with P(all) indicating how accurate the model is.
 
 ## Important Error Functions (cost functions) <a name="error_func"></a>
 - Cost functions must be:
@@ -261,7 +261,7 @@ How does Neural Networks work?
     ![image12]
 
 # Underfitting and Overfitting <a name="under_over"></a>
-- A good model captures the undelying logic of the dataset
+- A good model captures the undelying logic of the dataset.
 - However: There are two adverserial extremes:
     - Underfitting
     - Overfitting
@@ -269,76 +269,76 @@ How does Neural Networks work?
     ![image30]
 
 ## Train-Validation-Test Split <a name="train_val_test"></a> 
-- A Train-Validation split is needed to identify Underfitting or Overfitting
-- **Training set**: That's where the training happens
-- **Validation set**: Helps to prevent overfitting 
-- **Test set**: Measures the final predictive power of the model
+- A Train-Validation split is needed to identify Underfitting or Overfitting.
+- **Training set**: That's where the training happens.
+- **Validation set**: Helps to prevent overfitting. 
+- **Test set**: Measures the final predictive power of the model.
 
     ![image31]
 
-    - Training only on the **Training set**
-    - Training: Forward and Backward Propagation
-    - Training for a while
-    - Then switch to **Validation set**
-    - Validation: Only Forward Propagation
+    - Training is done only on the **Training set**.
+    - Training: Apply Forward and Backward Propagation.
+    - Apply 'Training' for a while.
+    - Then switch to the **Validation set**.
+    - Validation: Apply only Forward Propagation.
     - Calculate the loss: How does it perform?
-        - Validation and Training loss should decrease during Training
-        - At some point Validation loss could start increasing
-        Point where overfitting starts 
-        - Point where one should stop training the model
-    - Perform Training and Validation iteratively
-    - After training: One should test the model performance using the **Test set** (only Forward Propagation)
+        - Validation and Training loss should decrease during Training.
+        - At some point the Validation loss could start increasing.
+        This is the point where overfitting starts. 
+        - This is the point where one should stop training the model.
+    - Perform Training and Validation iteratively.
+    - After training: One should test the model performance using the **Test set** (only Forward Propagation).
 
 ## N-fold-cross-validation <a name="n_fold_cross_val"></a> 
-- Useful if the Dataset is too small
+- It is useful if the Dataset is very small.
 
     ![image32]
 
-    - It combines Training and Validation set in a clever way
-    - For example: we have 10000 observations (9000 for training + 1000 for validation)
-    - Divide dataset into **n chunks** (here 10)
-    - During the **1st epoch**: **1st chunk** serves as **validation set**
-    - During the **2nd epoch**: **2nd chunk** serves as **validation set**
+    - It combines Training and Validation set in a clever way.
+    - For example: we have 10000 observations (9000 for training + 1000 for validation).
+    - Divide dataset into **n chunks** (here 10).
+    - During the **1st epoch**: **1st chunk** serves as the **validation set**.
+    - During the **2nd epoch**: **2nd chunk** serves as the **validation set**.
     - etc.
-    - For each epoch: We don't overlap training and validation
+    - For each epoch: We don't overlap training and validation.
 
     
 ## Early Stopping <a name="early_stop"></a> 
-- An easy method to prevent overfitting
+- An easy method to prevent overfitting.
 
     ![image33]
 
     **Benefits**:
-    - We are sure the validation loss is minimized
-    - Saves computing power
-    - Prevents overfitting
+    - We are sure the validation loss is minimized.
+    - Saves computing power.
+    - Prevents overfitting.
 
 ## Dropout <a name="dropout"></a> 
-- An easy approach to reduce the problem of overfitting
+- An easy approach to reduce the problem of overfitting.
 
     ![image34]
 
-    - Each node will be dropped out with a certain propability, e.g. of 20%
-    - Consider: During validation or testing we do not want to use Dropout!!! We want to use the full predictive power of the full net
+    - Each node will be dropped out with a certain propability, e.g. of 20%.
+    - Consider: During validation or testing we do not want to use Dropout!!! We want to use the full predictive power of the full net.
     - However: Due to an increased number of available parameters during validation/testing (when dropout has been used during training), you have to reduce the neuron parameter. For example for a dropout probability of 20%, multiply the parameters of each layer with 0.8 (automatically done in Keras and PyTorch).
 
 - Simple rules for Dropout:
     - Use it in case of overfitting.
     - Even without overfitting it show an performance increase during validation. Test it e.g. in **later training epochs**.
     - Rule of thumb: Test it first in the last hidden layer. Positive effect? If yes, test it in the second last, and so on ...
-    - Too much Dropout could counterproductive.
+    - Too much Dropout could be counterproductive.
     - Good starting point: 20%...50%
 
 ## L1 and L2 regularization <a name="l1_l2"></a>  
-- An easy approach to reduce the problem of overfitting
+- An easy approach to reduce the problem of overfitting.
 
     ![image35]
 
     - In this way only parameters (weights) will be kept if they lead to a significant reduction between target and prediction values (reduction of loss).
 
 ## Data Augmentation <a name="data_aug"></a>  
-- An easy approach to reduce the problem of overfitting
-- Popular transformations (often used for images)
+- An easy approach to reduce the problem of overfitting.
+- Popular transformations (often used for images):
     - Flip
     - Rotation
     - Scale
@@ -347,22 +347,22 @@ How does Neural Networks work?
     - Gaussian Noise 
 
 # Weight Initialization <a name="weight_init"></a> 
-
 ## Why is weight initialization important? <a name="why_weight_init"></a> 
-- The initial value of weights is important for learning
+- To overcome local minima a random restart could beneficial. 
+- The initial value of weights is important for learning.
 - A deep neural network uses activation functions like sigmoid to implement nonlinearities.
 - If **all weights are around zero**, the sigmoid will produce **linear outputs** (linear region of sigmoid is around 0). The Deep Neural Network will **loose depth**.
-- If **all weights are too negative or to positive**, the sigmoid is almost **flat** (the sigmoid outputs are 1 or 0 then). A **Vanishing Gradient** problem will arise --> The **network will not learn**
+- If **all weights are too negative or to positive**, the sigmoid is almost **flat** (the sigmoid outputs are 1 or 0 then). A **Vanishing Gradient** problem will arise --> The **network will not learn**.
 
 ## Why not a constant setting? <a name="not_constant"></a> 
-- If all weights are equal there is no reason for the algorithm to learn
+- If all weights are equal there is no reason for the algorithm to learn.
 
     ![image36]
 
     - In Forward Propagation: 
         - h<sub>1</sub>=h<sub>2</sub>=h<sub>3</sub>=h
         - y<sub>1</sub>=y<sub>2</sub>=y
-    - Some optimization will take place but weights remain useless
+    - Some optimization will take place but weights remain useless.
 
 
 ## Problem of initializations with Random Uniform or Random Normal   <a name="uniform_normal_init"></a> 
@@ -371,18 +371,18 @@ How does Neural Networks work?
     ![image38]
 
 ## Glorot normal/uniform distribution <a name="glorot_normal"></a>  
-- Read the original paper of Xavier Glorot, Yoshua Bengio, [Understanding the difficulty of training deep feedforward neural networks](https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf), Proceedings of the Thirteens International Conference on Artificial Intelligence and Statistics, PMLR 9:249-256, 2010
+- Read the original paper of Xavier Glorot, Yoshua Bengio, [Understanding the difficulty of training deep feedforward neural networks](https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf), Proceedings of the Thirteens International Conference on Artificial Intelligence and Statistics, PMLR 9:249-256, 2010.
 
     ![image39]
-    - This initialization is exactly what we need, i.e. a wide range of initialized weights
-    - Two types of initializations
+    - This initialization is exactly what we need, i.e. a wide range of initialized weights.
+    - Two types of initializations:
         - Uniform Glorot initialization
         - Normal Glorot initialization
-    - Main idea: The **number of neurons in the input and output layer** is important for the **range of the weight values**
+    - Main idea: The **number of neurons in the input and output layer** is important for the **range of the weight values**.
     - Why are the number of input and output neurons so important?
-        - The more outputs the higher the need to spread weights
-        - Inputs are the 'Outputs' for Backpropagation
-    - In Tensorflow Glorot Uniform intitializer (glorot_uniform_initializer) will be used as default.
+        - The more outputs the higher the need to spread weights.
+        - Inputs are the 'Outputs' for Backpropagation.
+    - In Tensorflow the Glorot Uniform intitializer (glorot_uniform_initializer) will be used as default.
 
 # Instable Gradients <a name="instable_grad"></a> 
 - Instable Gradients of neurons can be problematic if we add further hidden layers.
@@ -391,14 +391,14 @@ How does Neural Networks work?
     - Exploding Gradients
 
 ## Vanishing gradients <a name="van_grad"></a> 
-- A weight will be changed based on the gradient size of the cost function  
-- If the gradient is 0 --> no learning (weight update) 
+- A weight will be changed based on the gradient size of the cost function.  
+- If the gradient is 0 --> no learning (weight update). 
 - Weight update is most effective for the hidden layer close to the output layer.
-- For hidden layers further away from the output layer --> gradient of the cost function will get more flat --> Vanishing learning effect
+- For hidden layers further away from the output layer --> gradient of the cost function will become more flat. --> Vanishing learning effect.
 
 ## Exploding gradients <a name="expl_grad"></a> 
-- Steep increase of gradients for hidden layers further away from the output layer
-- Often the case for Recurrent Neural Networks
+- Increase of gradients is steeper for hidden layers further away from the output layer.
+- This is often the case for Recurrent Neural Networks.
 - They decrease the learnability of neural networks as they saturate neurons.
 
 ## Batchnormalization <a name="batchnorm"></a> 
@@ -421,7 +421,7 @@ How does Neural Networks work?
     ![image27]
     ![image28]
 
-- Learning rate: Best Practice
+- Learning rate - Best Practice:
 
     ![image22]
 
@@ -429,19 +429,19 @@ How does Neural Networks work?
 
 
 ## Gradient Descent algorithm <a name="grad_dec_algo"></a>
-- Update weights and bias for **every** point
+- Update weights and bias for **every** point.
 
     ![image13]
 
 ## Forward and Backward propagation <a name="for_and_back"></a>
-- Forward and backward propagation needed for learning 
+- Forward and backward propagation are needed for learning. 
 
     ![image24]
 
     [Source: Udemy - The Data Science Course 2021: Complete Data Science Bootcamp ](https://www.udemy.com/course/the-data-science-course-complete-data-science-bootcamp/)
 
 ## Minimal example in NumPy <a name="min_example"></a>
-- Open Jupyter Notebook ```NN_numpy.ipynb```
+- Open Jupyter Notebook ```NN_numpy.ipynb```.
     ### Libraries
     ```
     import numpy as np
