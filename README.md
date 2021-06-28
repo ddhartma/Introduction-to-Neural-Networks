@@ -384,9 +384,31 @@ How does Neural Networks work?
         - Inputs are the 'Outputs' for Backpropagation
     - In Tensorflow Glorot Uniform intitializer (glorot_uniform_initializer) will be used as default.
 
-
 # Instable Gradients <a name="instable_grad"></a> 
+- Instable Gradients of neurons can be problematic if we add further hidden layers.
+- There are two types of instable gradients:
+    - Vanishing Gradients
+    - Exploding Gradients
 
+## Vanishing gradients <a name="van_grad"></a> 
+- A weight will be changed based on the gradient size of the cost function  
+- If the gradient is 0 --> no learning (weight update) 
+- Weight update is most effective for the hidden layer close to the output layer.
+- For hidden layers further away from the output layer --> gradient of the cost function will get more flat --> Vanishing learning effect
+
+## Exploding gradients <a name="expl_grad"></a> 
+- Steep increase of gradients for hidden layers further away from the output layer
+- Often the case for Recurrent Neural Networks
+- They decrease the learnability of neural networks as they saturate neurons.
+
+## Batchnormalization <a name="batchnorm"></a> 
+- Batch-Normalization (BN) is an algorithmic method which makes the training of Deep Neural Networks (DNN) **faster** and **more stable**.
+- It consists of **normalizing activation vectors from hidden layers** using (mean and variance) of the current batch. 
+- This normalization step is applied right before (or right after) the nonlinear function.
+
+    ![image41]
+    
+    ![image42]
 
 # Optimizer <a name="optimizer"></a> 
 
