@@ -593,7 +593,7 @@ How does Neural Networks work?
     ![image50]
 
     Adam combines all:
-    - **SGD**: minibatching, multiple upodates during oine epoch --> faster learning
+    - **SGD**: minibatching, multiple updates during one epoch --> faster learning
     - **Adaptive LR (AdaGrad)**: 
         - if dL/dw is flat  --> increase LR
         - if dL/dw is large --> decrease LR
