@@ -92,7 +92,7 @@ How does Neural Networks work?
         - [Gradient Descent algorithm](#grad_dec_algo)
         - [Forward and Backward propagation](#for_and_back)
         - [Minimal Example in NumPy](#min_example)
-    - [Stochastic Gradient Descent](#sdd)
+    - [Stochastic Gradient Descent](#sgd)
     - [Minibatch Gradient Descent](#mini_batch)
     - [Momentum](#momentum)
     - [Learning Rate](#lr)
