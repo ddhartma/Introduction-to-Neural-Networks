@@ -96,8 +96,8 @@ How does Neural Networks work?
     - [Minibatch Gradient Descent](#mini_batch)
     - [Momentum](#momentum)
     - [Learning Rate](#lr)
-    - [AdaGrad](#adagrad)
-    - [RMSProp](#rmsprop)
+    - [Hyperparameters vs. Parameters](#hyper_para)
+    - [AdaGrad and RMSProp](#adagrad)
     - [Adam](#adam)
 - [Preprocessing](#preprocess)
     - [Why Preprocessing?](#preprocess)
@@ -551,13 +551,54 @@ How does Neural Networks work?
     - Add earlier gradients to the actual gradient to overcome local minima.
 
 # Learning Rate <a name="lr"></a>  
+- Learning Rate **Linear Schedule**, 
+    - e.g. decrease lr every 5 epochs by 10
+    - Loss converges much faster
+- Learning Rate **Exponential Schedule**:
+    - &eta; = &eta;<sub>0</sub> e<sup>-n/c</sup>
+    - n = current epoch
+    - c = decay coefficient, hyperparameter
+- **Adaptive Learning Rate**
+    - It dynamically varies the learning rate at each update and for each weight individually.
 
-# AdaGrad <a name="adagrad"></a> 
+# Hyperparameters vs. Parameters <a name="hyper_para"></a> 
 
-# RMSProp <a name="rmsprop"></a> 
+| Hyperparameters (preset) | Parameters (found by optimizing) |
+| --- | --- |
+| width | weights (w) |
+| depth | bias (b) |
+| epochs ||
+| lr||
+| batch size| |
+| momentum coefficient &alpha; ||
+| decay coefficient c ||
+| L1/L2 reg. weight||
+| RNN: cell type (LSTM, Vanilla, GRU) ||
+| RNN: depth of model, stacked LSTMs||
+
+# AdaGrad and RMSProp <a name="adagrad"></a> 
+- AdaGrad = Adaptive Gradient
+- RMSProp = Root Mean Square Propagation
+- Scalable learning rate
+
+    ![image48]
+
+    - For RMSProp we use another hyperparameter, decay rate &beta;. This hyperparameter is similar to the decay rate of momentum.
 
 # Adam <a name="adam"></a>
+- Adam combines 
+    - **adaptive learning rates** with
+    - **momentum**
 
+    ![image50]
+
+    Adam combines all:
+    - **SGD**: minibatching, multiple upodates during oine epoch --> faster learning
+    - **Adaptive LR (AdaGrad)**: 
+        - if dL/dw is flat  --> increase LR
+        - if dL/dw is large --> decrease LR
+    - **RMSProp**: Moving scheduler --> weight updates in both directions (w<sub>i</sub> + ... or w<sub>i</sub> - ...)
+    - **Momentum**: Take the momentum of previous weight steps to overcome local minima.     
 ## Setup Instructions <a name="Setup_Instructions"></a>
 The following is a brief set of instructions on setting up a cloned repository.
 
