@@ -87,17 +87,17 @@ How does Neural Networks work?
     - [Exploding gradients](#expl_grad)
     - [Batchnormalization](#batchnorm)
 - [Optimizer](#optimizer)
-    - [Gradient Descent](#gradient_descent)
+    - [(Batch) Gradient Descent](#gradient_descent)
         - [Gradient Descent as optimization algorithm](#grad_dec)
         - [Gradient Descent algorithm](#grad_dec_algo)
         - [Forward and Backward propagation](#for_and_back)
         - [Minimal Example in NumPy](#min_example)
-    - [Batch Gradient Descent](#batch_grad_dec)
     - [Stochastic Gradient Descent](#sdg)
     - [Minibatch Gradient Descent](#mini_batch)
     - [Momentum](#momentum)
     - [Learning Rate](#lr)
     - [AdaGrad](#adagrad)
+    - [RMSProp](#rmsprop)
     - [Adam](#adam)
 - [Preprocessing](#preprocess)
     - [Why Preprocessing?](#preprocess)
@@ -412,7 +412,12 @@ How does Neural Networks work?
 
 # Optimizer <a name="optimizer"></a> 
 
-# Gradient Descent <a name="gradient_descent"></a>
+# (Batch) Gradient Descent <a name="gradient_descent"></a>
+- It iterates over the **whole Training set** before updating the weights
+- Each update is very small, as the learning rate is small
+- GD (also called Batch-GD)is slow
+
+    ![image43]
 
 ## Gradient Descent as optimization algorithm <a name="grad_dec"></a>
 - The last ingredient is the **optimization algorithm**. The most commonly used one is the **gradient descent**. The main point is that we can find the **minimum of a loss function** by applying the rule: 𝑥𝑖+1 = 𝑥𝑖 − 𝜂𝑓′(𝑥𝑖) , where 𝜂 is a small enough positive number. In machine learning, 𝜂, is called the learning rate. The rationale is that the first derivative at xi , f’(xi) shows the slope of the function at xi.
@@ -508,6 +513,50 @@ How does Neural Networks work?
         weights = weights - learning_rate * np.dot(inputs.T,deltas_scaled)
         biases = biases - learning_rate * np.sum(deltas_scaled)
     ```
+
+# Stochastic Gradient Descent (SGD) <a name="sgd"></a>
+- Similar to GD
+- But it updates weights many times in a single epoch
+(in principle after each sample)
+- Take care: A lot of people do not distinguish between SGD and minibatch GD.
+- 
+    ![image44]
+
+# Minibatch Gradient Descent <a name="mini_batch"></a> 
+- Similar to SGD, but 
+    - **SGD**: weight update after **each sample**
+    - **Minibatch GD**:  weight update after **each batch**
+- Batching process: Process of splitting the dataset into n batches (minibatches)
+- Much faster than GD
+- Small disadvantage: It approximates things a little bit --> Loss in accuracy. Example: 
+    - 10000 samples
+    - For a batchsize of 1000 --> 10 batches --> 10 weight updates per epoch 
+- But approximation induces noise. **Noise can help to overcome local minima**.
+
+    ![image45]
+- Why is SGD (or minibatch GD) faster?
+    - related to hardware
+    - CPU or GPU cores train different batches simultaneously.
+
+# Momentum <a name="momentum"></a> 
+- Problem (especially) for GD 
+    - **At low lr**: It often falls in a **local minimum** instead of a global one
+    - **At higher lr**: It can overcome a **local minimum** but under risk of **oscillations**
+
+    ![image46]
+
+- Solution: Momentum
+
+    ![image47]
+    - Add earlier gradients to the actual gradient to overcome local minima.
+
+# Learning Rate <a name="lr"></a>  
+
+# AdaGrad <a name="adagrad"></a> 
+
+# RMSProp <a name="rmsprop"></a> 
+
+# Adam <a name="adam"></a>
 
 ## Setup Instructions <a name="Setup_Instructions"></a>
 The following is a brief set of instructions on setting up a cloned repository.
