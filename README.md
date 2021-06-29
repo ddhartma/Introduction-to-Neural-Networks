@@ -92,7 +92,7 @@ How does Neural Networks work?
         - [Gradient Descent algorithm](#grad_dec_algo)
         - [Forward and Backward propagation](#for_and_back)
         - [Minimal Example in NumPy](#min_example)
-    - [Stochastic Gradient Descent](#sdg)
+    - [Stochastic Gradient Descent](#sdd)
     - [Minibatch Gradient Descent](#mini_batch)
     - [Momentum](#momentum)
     - [Learning Rate](#lr)
@@ -519,7 +519,7 @@ How does Neural Networks work?
 - But it updates weights many times in a single epoch
 (in principle after each sample)
 - Take care: A lot of people do not distinguish between SGD and minibatch GD.
-- 
+
     ![image44]
 
 # Minibatch Gradient Descent <a name="mini_batch"></a> 
