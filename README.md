@@ -113,7 +113,7 @@ How does Neural Networks work?
 - [Preprocessing](#preprocess)
     - [Why Preprocessing?](#preprocess)
     - [Types](#types)
-        - [Relative Values](rel_val)
+        - [Relative Values](#rel_val)
         - [Logarithms](#loga)
         - [Normalization](#normal)
         - [Standardization](#standard)
