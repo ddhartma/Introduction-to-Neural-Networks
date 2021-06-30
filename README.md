@@ -48,6 +48,17 @@
 [image48]: assets/48.png 
 [image49]: assets/49.png 
 [image50]: assets/50.png 
+[image51]: assets/51.png 
+[image52]: assets/52.png 
+[image53]: assets/53.png 
+[image54]: assets/54.png 
+[image55]: assets/55.png 
+[image56]: assets/56.png 
+[image57]: assets/57.png 
+[image58]: assets/58.png 
+[image59]: assets/59.png 
+[image60]: assets/60.png 
+[image61]: assets/61.png 
 
 # Neural Networks
 
@@ -102,9 +113,11 @@ How does Neural Networks work?
 - [Preprocessing](#preprocess)
     - [Why Preprocessing?](#preprocess)
     - [Types](#types)
+        - [Relative Values](rel_val)
         - [Logarithms](#loga)
+        - [Normalization](#normal)
         - [Standardization](#standard)
-        - [Normalization](#norma)
+        - [Normalization with L1 or L2 norm](#norma_l1_l2)
         - [Principal Component Analysis](#pca)
         - [Whitening](#white)
         - [Treating Categorical Data](#categorical)
@@ -598,7 +611,99 @@ How does Neural Networks work?
         - if dL/dw is flat  --> increase LR
         - if dL/dw is large --> decrease LR
     - **RMSProp**: Moving scheduler --> weight updates in both directions (w<sub>i</sub> + ... or w<sub>i</sub> - ...)
-    - **Momentum**: Take the momentum of previous weight steps to overcome local minima.     
+    - **Momentum**: Take the momentum of previous weight steps to overcome local minima.  
+
+# Preprocessing](#preprocess)
+It is any manipulation - **data transformation** - of the dataset before running it through the model 
+# Why Preprocessing? <a name="preprocess"></a>
+- **Compatibility**, e.g. Tensorflow works with Tensors and not with Excel sheets
+- **Orders of magnitude**, e.g. a linear combination of input variables of different orders is problematic.
+- **Generalization**, same model but different issue, a trained network can be used for a different topic  
+
+# Types <a name="types"></a> 
+- Relative Values
+- Logarithms
+- Standardization
+- Normalization
+- Principal Component Analysis
+- Whitening
+- Treating Categorical Data
+- Data Augmentation
+
+## Relative Values <a name="rel_val"></a> 
+- Instead of absolute ones
+- e.g. [stock prices](https://www.google.com/search?client=firefox-b-d&q=apple+stock+price) 
+- Useful for Time Series Data
+
+## Logarithms <a name="loga"></a> 
+- Log transformed data 
+
+    ![image51]
+
+## Normalization <a name="normal"></a> 
+- Normalization simply scales the values in the range [0-1]. 
+- To apply it on a dataset you just have to subtract the **minimum value from each feature** and divide it with the **range (max – min)**.
+
+    ![image52]
+
+## Standardization <a name="standard"></a> 
+- Standardization on the other hand transforms data to have a **zero mean** and **one unit standard deviation**.
+
+    ![image53]
+
+## Normalization with L1 or L2 norm <a name="norma_l1_l2"></a>
+- The L1 norm that is calculated as the sum of the absolute values of the vector.
+
+    ![image54]
+
+- The L2 norm that is calculated as the square root of the sum of the squared vector values.
+
+    ![image55]
+
+## Principal Component Analysis <a name="pca"></a> 
+- Intersting articel: [A One-Stop Shop for Principal Component Analysis](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c)
+### What is PCA?
+-  **Dimension reduction** technique. Two classes
+    - **Feature Elimination**: Reduce the feature space by eliminating features 
+    - **Feature Extraction**: extract most important features --> PCA
+    
+- **PCA**:
+    - Find feature axis of maximum variance in high dimensional data.
+    - Project data points into this new feature space
+    - New feature axis are orthogonal 
+- Input: **x**-vector with **d** dimensions
+- Output: **z**-vector with **k** dimensions 
+- Transformation matrix: **W** with **d x k** dimensions
+
+    ![image56]
+
+### PCA Algorithm:
+1. Provide tabular data with **n** rows, 1 column with dependent variable **Y** and **p** columns with independent variables (the matrix of which is usually denoted **X**)
+2. Take the matrix of independent variables **X** and, for each column, subtract the mean of that column from each entry. (This ensures that each column has a mean of zero.)
+3. Decide whether or not to standardize. Given the columns of **X**, are features with higher variance more important than features with lower variance, or is the importance of features independent of the variance? (In this case, importance means how well that feature predicts **Y**.) If the importance of features is independent of the variance of the features, then divide each observation in a column by that column’s standard deviation. (This, combined with step 2, standardizes each column of **X** to make sure each column has mean zero and standard deviation 1.) Call the centered (and possibly standardized) matrix **Z**.
+4. Take the matrix **Z**, transpose it, and create **ZᵀZ**). The resulting matrix is the covariance matrix of Z, up to a constant. This matrix has the dimension ***d x d** (d = dimension of variables).
+5. Calculate the **eigenvectors** and their corresponding **eigenvalues** of **ZᵀZ**. Use eigendecomposition of **ZᵀZ** is where we decompose **ZᵀZ** into **PDP⁻¹**, where **P** is the **matrix of eigenvectors** and **D** is the **diagonal matrix with eigenvalues on the diagonal** and values of zero everywhere else. The eigenvalues on the diagonal of D will be associated with the corresponding column in **P** — that is, the first element of **D** is **λ₁** and the corresponding eigenvector is the first column of **P**
+6. Take the eigenvalues **λ₁**, **λ₂**, …, **λp** and **sort** them from **largest to smallest**. In doing so, **sort the eigenvectors in P accordingly**. (For example, if **λ₂** is the largest eigenvalue, then take the second column of **P** and place it in the first column position.). Call this **sorted matrix of eigenvectors** **P***. Note that these eigenvectors are independent of one another.
+7. Calculate **Z* = ZP***. This new matrix, **Z***, is a centered/standardized version of **X** but now each observation is a combination of the original variables, where the weights are determined by the eigenvector. As a bonus, because our eigenvectors in P* are independent of one another, **each column of Z* is also independent of one another**!
+8. Finally, we need to determine how many features to keep versus how many to drop. Because each eigenvalue is roughly the importance of its corresponding eigenvector, the **proportion of variance explained** is the sum of the eigenvalues of the features you kept divided by the sum of the eigenvalues of all features.
+
+    ![image57]
+
+    Hence calculate the cumulative proportion of variance explained. For example: If you like to keep variables which explain up to 90% of the variance, done by the first ten out of fifteen variables, then keep the first ten and drop the last five.
+
+    ![image58]
+
+
+## Whitening <a name="white"></a> 
+## Treating Categorical Data <a name="categorical"></a> 
+Two interesting approaches:
+- One-Hot-Encoding
+- Binary Encoding
+
+    ![image59]
+
+## [Data Augmentation](#data_aug) <a name="data_aug"></a> 
+   
 ## Setup Instructions <a name="Setup_Instructions"></a>
 The following is a brief set of instructions on setting up a cloned repository.
 
