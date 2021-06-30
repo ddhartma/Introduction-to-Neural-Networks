@@ -74,7 +74,7 @@ How does Neural Networks work?
     - [Nonlinear Regions](#nonlinear_regions)
     - [More Nodes/Layers](#more_nodes_layers)
     - [Digging Deeper](#dig_deeper)
-    - [Why we need nonlinearities?](#why_nonlinear) 
+    - [Why do we need nonlinearities?](#why_nonlinear) 
     - [Activation Functions](#activation_func)
     - [Sigmoid Activation for binary probabilities](#sigmoid_activation)
     - [Softmax Activation for multiclass probabilities](#softmax_activation)
