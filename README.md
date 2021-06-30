@@ -222,7 +222,7 @@ How does Neural Networks work?
 
     ![image25]
 
-## Why we need nonlinearities? <a name="why_nonlinear"></a>
+## Why do we need nonlinearities? <a name="why_nonlinear"></a>
 - Because **two consecutive linear transformations** are **equivalent** to a **single one**.
 
     ![image29]
