@@ -111,7 +111,7 @@ How does Neural Networks work?
     - [AdaGrad and RMSProp](#adagrad)
     - [Adam](#adam)
 - [Preprocessing](#preprocess)
-    - [Why Preprocessing?](#preprocess)
+    - [Why Preprocessing?](#why_preprocess)
     - [Types](#types)
         - [Relative Values](#rel_val)
         - [Logarithms](#loga)
@@ -614,9 +614,9 @@ How does Neural Networks work?
     - **RMSProp**: Moving scheduler --> weight updates in both directions (w<sub>i</sub> + ... or w<sub>i</sub> - ...)
     - **Momentum**: Take the momentum of previous weight steps to overcome local minima.  
 
-# Preprocessing](#preprocess)
+# Preprocessing <a name="preprocess"></a>
 It is any manipulation - **data transformation** - of the dataset before running it through the model 
-# Why Preprocessing? <a name="preprocess"></a>
+# Why Preprocessing? <a name="why_preprocess"></a>
 - **Compatibility**, e.g. Tensorflow works with Tensors and not with Excel sheets
 - **Orders of magnitude**, e.g. a linear combination of input variables of different orders is problematic.
 - **Generalization**, same model but different issue, a trained network can be used for a different topic  
